@@ -4,7 +4,6 @@
 (defrecord Coordinates [x y z])
 
 (defn parse-beacon [input]
-  (let [split-input (str/split input #",")
-        [x y z] (map #(Integer/parseInt %) split-input)]
+  (let [[x y z] (map #(Integer/parseInt %) (str/split input #","))]
     (Coordinates. x y z)
     ))
