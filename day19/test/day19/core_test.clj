@@ -4,7 +4,7 @@
   (:import (day19.core Coordinates)))
 
 (deftest scanner-report
-  (testing "Parse scanner report"
+  (testing "Parse scanner report row"
     (is (= (parse-beacon "0,0,0") (Coordinates. 0 0 0)))
     (is (= (parse-beacon "0,0,1") (Coordinates. 0 0 1)))
     (is (= (parse-beacon "-100,100,20") (Coordinates. -100 100 20)))
