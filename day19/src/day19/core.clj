@@ -7,3 +7,8 @@
   (let [[x y z] (map #(Integer/parseInt %) (str/split input #","))]
     (Coordinates. x y z)
     ))
+
+(defn parse-report [report]
+  (let [rows (rest (str/split-lines report))]
+    (map #(parse-beacon %) rows))
+  )
