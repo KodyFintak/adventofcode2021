@@ -8,7 +8,11 @@
     (Coordinates. x y z)
     ))
 
+(defn parse-scanner-report [scanner-report]
+  (let [rows (rest (str/split-lines scanner-report))]
+    (map #(parse-beacon %) rows))
+  )
+
 (defn parse-report [report]
-  (let [rows (rest (str/split-lines report))]
-    (list (map #(parse-beacon %) rows)))
+  (list (parse-scanner-report report))
   )
