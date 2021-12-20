@@ -3,14 +3,14 @@
 
 (defrecord Coordinates [x y z])
 
-(defn parse-beacon [input]
-  (let [[x y z] (map #(Integer/parseInt %) (str/split input #","))]
+(defn parse-beacon-report [beacon-report]
+  (let [[x y z] (map #(Integer/parseInt %) (str/split beacon-report #","))]
     (Coordinates. x y z)
     ))
 
 (defn parse-scanner-report [scanner-report]
-  (let [rows (rest (str/split-lines scanner-report))]
-    (map #(parse-beacon %) rows))
+  (let [beacon-reports (rest (str/split-lines scanner-report))]
+    (map #(parse-beacon-report %) beacon-reports))
   )
 
 (defn parse-report [report]
