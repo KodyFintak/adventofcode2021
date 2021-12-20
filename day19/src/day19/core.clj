@@ -10,5 +10,5 @@
 
 (defn parse-report [report]
   (let [rows (rest (str/split-lines report))]
-    (map #(parse-beacon %) rows))
+    (list (map #(parse-beacon %) rows)))
   )
