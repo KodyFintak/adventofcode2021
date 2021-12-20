@@ -6,13 +6,13 @@
 (deftest scanner-report
   (testing "Parse scanner report"
     (is (=
-          (parse-report "--- scanner 0 ---\n100,100,100\n\n")
+          (parse-report "--- scanner 0 ---\n100,100,100")
           (list (list (Coordinates. 100 100 100)))))
     (is (=
-          (parse-report "--- scanner 0 ---\n100,100,100\n1,-1,1\n\n")
+          (parse-report "--- scanner 0 ---\n100,100,100\n1,-1,1")
           (list (list (Coordinates. 100 100 100) (Coordinates. 1 -1 1)))))
     (is (=
-          (parse-report "--- scanner 0 ---\n1,1,1\n\n--- scanner 1 ---\n2,2,2\n\n")
+          (parse-report "--- scanner 0 ---\n1,1,1\n\n--- scanner 1 ---\n2,2,2")
           (list
             (list (Coordinates. 1 1 1))
             (list (Coordinates. 2 2 2)))))
