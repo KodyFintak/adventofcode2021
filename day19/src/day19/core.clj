@@ -14,5 +14,6 @@
   )
 
 (defn parse-report [report]
-  (list (parse-scanner-report report))
+  (let [scanner-reports (str/split report #"\n\n")]
+    (map #(parse-scanner-report %) scanner-reports))
   )
