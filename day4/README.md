@@ -14,5 +14,8 @@ make sure you have rackunit installed
 raco pkg install rackunit
 ```
 
-Hank Lin
+Kody Fintak
+Hank Lin - 1
 Carlos Molina
+
+brrr
