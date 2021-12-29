@@ -1,7 +1,8 @@
-#lang racket/base
+#lang racket
 
 (module+ test
-  (require rackunit))
+  (require rackunit)
+  (require math/array))
 
 ;; Notice
 ;; To install (from within the package directory):
@@ -29,13 +30,34 @@
   (+ a b)
 )
 
+;; Bingo board representation
+;; Board - create()
+;; Row
+
+(define book%
+  (class object%
+    (super-new)    
+    (init-field pages)
+    (define/public (letters)
+      (* pages 500))
+    ))
+
 
 (module+ test
   ;; Any code in this `test` submodule runs when this file is run using DrRacket
   ;; or with `raco test`. The code here does not run when this file is
   ;; required by another module.
 
-  (check-equal? (my-+ 2 2) 4))
+  (check-equal? (my-+ 2 2) 4)
+
+  (define my-book (new book% [pages 1]))
+
+  (check-equal? (send my-book letters) 500)
+
+  (let ([board #(#(1 2 3) #(4 5 6) #(7 8 9))])
+    (check-equal? board #(#(1 2 3) #(4 5 6) #(7 8 9)))
+  )
+)
 
 (module+ main
   ;; (Optional) main submodule. Put code here if you need it to be executed when
